@@ -392,14 +392,14 @@ const App: React.FC = () => {
                 <section id="crew-section" className="py-32 bg-[#fdfdfd] border-t border-slate-50">
                   <div className="container mx-auto px-6 text-center">
                     <div className="mb-20">
-                      <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#114f20] mb-6">Our Local Crew</h2>
+                      <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#114f20] mb-6">Meet The Crew!</h2>
                       <p className="text-lg text-slate-500 max-w-2xl mx-auto italic">Dedicated Wilmington neighbors treating your space like their own.</p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
                       {crewMembers.length === 0 ? (
                           <div className="col-span-full py-20 bg-slate-50 rounded-[3rem] border-2 border-dashed border-slate-200">
-                            <p className="text-slate-400 font-bold uppercase tracking-[0.2em] text-xs">Syncing Directory...</p>
+                            <p className="text-slate-400 font-bold uppercase tracking-[0.2em] text-xs">The Crew is coming soon!</p>
                           </div>
                       ) : (
                           crewMembers.map((member) => (
@@ -423,15 +423,25 @@ const App: React.FC = () => {
                   </div>
                 </section>
 
+                {/* Cleaning & Interior Gallery */}
                 <section className="py-24 bg-[#f4f7f2]">
                   <div className="container mx-auto px-6">
-                    <h2 className="text-3xl font-serif font-bold text-[#114f20] mb-12">Interiors & Grounds</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                      {[...GALLERY_IMAGES, ...LANDSCAPING_IMAGES].slice(0, 8).map((img, i) => (
-                          <div key={i} className="group relative overflow-hidden rounded-[2rem] aspect-square shadow-lg bg-slate-200">
-                            <img src={img.url} alt={img.caption} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-125" loading="lazy" />
-                            <div className="absolute inset-0 bg-[#114f20]/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-8 text-center backdrop-blur-[2px]">
-                              <p className="text-white text-xs font-bold uppercase tracking-widest leading-relaxed">{img.caption}</p>
+                    <div className="mb-12">
+                      <h2 className="text-3xl font-serif font-bold text-[#114f20] mb-2">Interior & Office Cleaning</h2>
+                      <p className="text-slate-600">Sparkling clean spaces for medical facilities and commercial offices.</p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {GALLERY_IMAGES.map((img, i) => (
+                          <div key={i} className="group relative overflow-hidden rounded-xl aspect-square shadow-sm bg-slate-200">
+                            <img
+                                src={img.url}
+                                alt={img.caption}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-[#114f20]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                              <p className="text-white text-[10px] font-bold uppercase tracking-widest">{img.caption}</p>
                             </div>
                           </div>
                       ))}
@@ -439,45 +449,113 @@ const App: React.FC = () => {
                   </div>
                 </section>
 
+                {/* Landscaping & Grounds Gallery */}
+                <section className="py-24 bg-white">
+                  <div className="container mx-auto px-6">
+                    <div className="mb-12 text-right">
+                      <h2 className="text-3xl font-serif font-bold text-[#114f20] mb-2">Landscaping & Grounds</h2>
+                      <p className="text-slate-600">Expert grounds care for Lumina Station and Greater Wilmington businesses.</p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {LANDSCAPING_IMAGES.map((img, i) => (
+                          <div key={i} className="group relative overflow-hidden rounded-xl aspect-square shadow-sm bg-slate-200">
+                            <img
+                                src={img.url}
+                                alt={img.caption}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-[#8a9a5b]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                              <p className="text-white text-[10px] font-bold uppercase tracking-widest">{img.caption}</p>
+                            </div>
+                          </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+
+                {/* Google Reviews Section */}
+                <section className="py-24 bg-[#f4f7f2]">
+                  <div className="container mx-auto px-6">
+                    <div className="text-center mb-16">
+                      <div className="flex justify-center mb-4">
+                        <div className="flex text-amber-400 gap-1">
+                          {[1,2,3,4,5].map(i => <svg key={i} className="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+                        </div>
+                      </div>
+                      <h2 className="text-3xl font-serif font-bold text-[#114f20]">What Our Neighbors Say</h2>
+                      <p className="text-slate-500 mt-2">Verified Google Reviews from Wilmington Clients</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                      {TESTIMONIALS.map((t, i) => (
+                          <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                            <div className="flex justify-between items-start mb-4">
+                              <div className="flex text-amber-400 gap-0.5">
+                                {[...Array(t.rating)].map((_, idx) => (
+                                    <svg key={idx} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                ))}
+                              </div>
+                              <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">{t.date}</span>
+                            </div>
+                            <p className="text-slate-600 italic mb-6 leading-relaxed">"{t.content}"</p>
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 bg-[#f4f7f2] rounded-full flex items-center justify-center font-bold text-[#114f20]">{t.author[0]}</div>
+                              <div>
+                                <p className="text-sm font-bold text-slate-800">{t.author}</p>
+                                <p className="text-[10px] text-slate-400 uppercase tracking-widest">{t.location}</p>
+                              </div>
+                            </div>
+                          </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+
+                {/* Contact Form Section */}
                 <section id="contact" className="py-24 bg-white scroll-mt-20">
                   <div className="container mx-auto px-6">
-                    <div className="max-w-6xl mx-auto bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden flex flex-col lg:flex-row">
-                      <div className="lg:w-2/5 bg-[#114f20] p-16 text-white relative">
-                        <h2 className="text-4xl font-serif font-bold mb-10 text-[#8a9a5b]">Let's Talk Shop.</h2>
-                        <div className="space-y-12">
+                    <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col lg:flex-row">
+                      <div className="lg:w-2/5 bg-[#114f20] p-12 text-white">
+                        <h2 className="text-3xl font-serif font-bold mb-8 text-[#8a9a5b]">Contact Us</h2>
+                        <div className="space-y-8">
                           <div>
-                            <p className="text-xs uppercase tracking-[0.3em] font-bold text-[#8a9a5b] mb-4">Direct Line</p>
-                            <a href={`tel:${BUSINESS_INFO.phone.replace(/\D/g,'')}`} className="text-3xl font-bold hover:text-[#8a9a5b] transition-colors">
-                              {BUSINESS_INFO.phone}
-                            </a>
+                            <p className="text-xs uppercase tracking-widest font-bold text-[#8a9a5b] mb-2">Phone</p>
+                            <a href={`tel:${BUSINESS_INFO.phone.replace(/\D/g,'')}`} className="text-2xl font-bold hover:text-[#8a9a5b] transition-colors">{BUSINESS_INFO.phone}</a>
                           </div>
                           <div>
-                            <p className="text-xs uppercase tracking-[0.3em] font-bold text-[#8a9a5b] mb-4">Wilmington HQ</p>
-                            <p className="text-xl font-medium">{BUSINESS_INFO.subAddress}</p>
-                            <p className="text-slate-300 mt-2">{BUSINESS_INFO.address}<br/>{BUSINESS_INFO.cityStateZip}</p>
+                            <p className="text-xs uppercase tracking-widest font-bold text-[#8a9a5b] mb-2">Office Address</p>
+                            <p className="text-lg font-medium">{BUSINESS_INFO.subAddress}</p>
+                            <p className="text-slate-300">{BUSINESS_INFO.address}<br/>{BUSINESS_INFO.cityStateZip}</p>
                           </div>
                         </div>
                       </div>
-                      <div className="lg:w-3/5 p-16">
-                        <form className="space-y-10" onSubmit={(e) => { e.preventDefault(); addToast('Message received! We will be in touch.', 'success'); }}>
-                          <div className="grid md:grid-cols-2 gap-10">
-                            <div className="space-y-3">
-                              <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">Full Name</label>
-                              <input type="text" className="w-full bg-slate-50 border-transparent border-2 p-4 rounded-xl focus:border-[#114f20] outline-none transition-all shadow-inner" required />
+                      <div className="lg:w-3/5 p-12">
+                        <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+                          <div className="grid md:grid-cols-2 gap-8">
+                            <div className="space-y-2">
+                              <label className="text-xs font-bold uppercase text-slate-400">Your Name</label>
+                              <input type="text" className="w-full border-b-2 border-slate-100 py-3 focus:border-[#114f20] outline-none transition-colors" placeholder="Mary Wilmington" />
                             </div>
-                            <div className="space-y-3">
-                              <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">Email Address</label>
-                              <input type="email" className="w-full bg-slate-50 border-transparent border-2 p-4 rounded-xl focus:border-[#114f20] outline-none transition-all shadow-inner" required />
+                            <div className="space-y-2">
+                              <label className="text-xs font-bold uppercase text-slate-400">Email Address</label>
+                              <input type="email" className="w-full border-b-2 border-slate-100 py-3 focus:border-[#114f20] outline-none transition-colors" placeholder="mary@company.com" />
                             </div>
                           </div>
-                          <button className="w-full bg-[#114f20] text-white py-5 rounded-2xl font-bold uppercase tracking-widest hover:bg-green-900 transition-all shadow-xl">
-                            Submit Inquiry
+                          <div className="space-y-2">
+                            <label className="text-xs font-bold uppercase text-slate-400">Message</label>
+                            <textarea rows={4} className="w-full border-b-2 border-slate-100 py-3 focus:border-[#114f20] outline-none transition-colors resize-none" placeholder="Tell us about your needs..."></textarea>
+                          </div>
+                          <button className="w-full bg-[#114f20] text-white py-5 rounded-xl font-bold uppercase tracking-widest hover:bg-green-900 transition-all shadow-lg">
+                            Send Message
                           </button>
                         </form>
                       </div>
                     </div>
                   </div>
                 </section>
+
               </main>
 
               <footer className="bg-slate-950 text-slate-500 py-24">
