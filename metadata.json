@@ -1,0 +1,7 @@
+{
+  "name": "East Coast Maintenance Service (ECMS)",
+  "description": "A high-end, community-focused commercial maintenance website for a local Wilmington, NC business. Features a personalized, realistic feel for a company serving the community since 1974.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
