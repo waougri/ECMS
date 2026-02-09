@@ -11,6 +11,7 @@ import { CrewMember, Toast as ToastType } from './types';
 import { supabase } from "@/supabaseClient.ts";
 import { auth, googleProvider } from './firebase';
 import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import { AnimatedBackground, Reveal } from './components/AnimatedBackground';
 
 
 
@@ -346,6 +347,7 @@ const App: React.FC = () => {
 
   return (
       <div className="min-h-screen selection:bg-green-100 selection:text-green-900 overflow-x-hidden">
+        <AnimatedBackground/>
         <div className="fixed bottom-8 right-8 z-[200] flex flex-col gap-4">
           {toasts.map(toast => (
               <Toast key={toast.id} toast={toast} onClose={removeToast} />
@@ -365,32 +367,34 @@ const App: React.FC = () => {
         ) : (
             <>
               <Navbar />
+            
 
               <main>
                 <Hero />
 
-                <section id="services" className="py-24 bg-white relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
-                  <div className="container mx-auto px-6 relative">
-                    <div className="text-center mb-16">
-                      <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#114f20] mb-4">Quality Building Care</h2>
-                      <p className="text-slate-500 max-w-2xl mx-auto">Precise commercial cleaning and maintenance across New Hanover County since 1974.</p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {SERVICES.map((service) => (
-                          <div key={service.id} className="service-card p-10 rounded-3xl border border-slate-50 shadow-sm hover:shadow-xl group">
-                            <div className="text-5xl mb-8 group-hover:scale-110 transition-transform inline-block">{service.icon}</div>
-                            <h3 className="text-2xl font-bold text-[#114f20] mb-4">{service.title}</h3>
-                            <p className="text-slate-600 leading-relaxed text-sm">{service.description}</p>
-                          </div>
-                      ))}
-                    </div>
+               <section id="services" className="py-24 bg-white/90 backdrop-blur-sm relative overflow-hidden">
+             {/* Use Reveal here */}
+             <Reveal children={undefined}>
+                <div className="container mx-auto px-6 relative">
+                  {/* ... Header Text ... */}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {SERVICES.map((service) => (
+                        <div key={service.id} className="service-card p-10 rounded-3xl border border-slate-50 shadow-sm hover:shadow-xl group bg-white relative overflow-hidden transition-all hover:-translate-y-2">
+                          {/* THE SHINE EFFECT */}
+                          <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+                          
+                          <div className="text-5xl mb-8 group-hover:scale-110 transition-transform inline-block">{service.icon}</div>
+                          <h3 className="text-2xl font-bold text-[#114f20] mb-4">{service.title}</h3>
+                          <p className="text-slate-600 leading-relaxed text-sm">{service.description}</p>
+                        </div>
+                    ))}
                   </div>
-                </section>
+                </div>
+             </Reveal>
+          </section>
 
                 <section id="crew-section" className="py-32 bg-[#fdfdfd] border-t border-slate-50">
-                  <div className="container mx-auto px-6 text-center">
+                <Reveal children={undefined}>                  <div className="container mx-auto px-6 text-center">
                     <div className="mb-20">
                       <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#114f20] mb-6">Meet The Crew!</h2>
                       <p className="text-lg text-slate-500 max-w-2xl mx-auto italic">Dedicated Wilmington neighbors treating your space like their own.</p>
@@ -421,10 +425,14 @@ const App: React.FC = () => {
                       )}
                     </div>
                   </div>
+                  </Reveal>
+
                 </section>
 
                 {/* Cleaning & Interior Gallery */}
                 <section className="py-24 bg-[#f4f7f2]">
+                  <Reveal children={undefined}>
+
                   <div className="container mx-auto px-6">
                     <div className="mb-12">
                       <h2 className="text-3xl font-serif font-bold text-[#114f20] mb-2">Interior & Office Cleaning</h2>
@@ -447,6 +455,7 @@ const App: React.FC = () => {
                       ))}
                     </div>
                   </div>
+                  </Reveal>
                 </section>
 
                 {/* Landscaping & Grounds Gallery */}
@@ -477,6 +486,8 @@ const App: React.FC = () => {
 
                 {/* Google Reviews Section */}
                 <section className="py-24 bg-[#f4f7f2]">
+                                    <Reveal children={undefined}>
+
                   <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                       <div className="flex justify-center mb-4">
@@ -511,10 +522,13 @@ const App: React.FC = () => {
                       ))}
                     </div>
                   </div>
+                  </Reveal>
                 </section>
 
                 {/* Contact Form Section */}
                 <section id="contact" className="py-24 bg-white scroll-mt-20">
+                                    <Reveal children={undefined}>
+
                   <div className="container mx-auto px-6">
                     <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col lg:flex-row">
                       <div className="lg:w-2/5 bg-[#114f20] p-12 text-white">
@@ -554,6 +568,7 @@ const App: React.FC = () => {
                       </div>
                     </div>
                   </div>
+                  </Reveal>
                 </section>
 
               </main>

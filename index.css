@@ -1,0 +1,7 @@
+/* Add to index.css */
+@keyframes shine {
+  100% { left: 125%; }
+}
+.group:hover .shine-effect {
+  animation: shine 1s;
+}
