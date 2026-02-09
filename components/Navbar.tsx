@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { BUSINESS_INFO } from '../constants';
-import {logoUrl} from "../assets/logo.png";
+import logoUrl from "../assets/logo.png";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
