@@ -16,12 +16,12 @@ const Navbar: React.FC = () => {
 
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-300 ${
       isScrolled ? 'bg-white shadow-md py-3' : 'bg-white/80 backdrop-blur-sm py-5'
     }`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#" className="flex items-center">
-          <img src={logoUrl} alt="ECMS Logo" className="h-10 md:h-12 w-auto" />
+          <img src={logoUrl} alt="ECMS Logo" className="h-24 md:h-30 w-auto" />
         </a>
 
         <div className="hidden md:flex items-center gap-10">
