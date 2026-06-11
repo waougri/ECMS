@@ -87,7 +87,6 @@ const Hero: React.FC = () => {
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7 }}
-                src="https://www.southernliving.com/thmb/Twr3p5wRqgEN5tZO3MhJC3EfEZw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/27529_WilmiWilmington_NC-Riverwalk-6017-cfc0ba2f5f80487fa0f30caca55b9b06.jpg"
                 className="w-full h-auto object-cover aspect-[4/3]"
                 alt="Clean Commercial Office"
               />

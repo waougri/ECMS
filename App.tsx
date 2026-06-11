@@ -602,25 +602,8 @@ const App: React.FC = () => {
                         </p>
                       </div>
 
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {GALLERY_IMAGES.map((img, i) => (
-                            <div
-                                key={i}
-                                className="group relative overflow-hidden rounded-xl aspect-square shadow-sm bg-slate-200"
-                            >
-                              <img
-                                  src={img.url}
-                                  alt={img.caption}
-                                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                  loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-[#114f20]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                                <p className="text-white text-[10px] font-bold uppercase tracking-widest">
-                                  {img.caption}
-                                </p>
-                              </div>
-                            </div>
-                        ))}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4" hidden>
+                        {}
                       </div>
                     </div>
                   </Reveal>
@@ -641,24 +624,7 @@ const App: React.FC = () => {
                       </div>
 
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {LANDSCAPING_IMAGES.map((img, i) => (
-                            <div
-                                key={i}
-                                className="group relative overflow-hidden rounded-xl aspect-square shadow-sm bg-slate-200"
-                            >
-                              <img
-                                  src={img.url}
-                                  alt={img.caption}
-                                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                  loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-[#8a9a5b]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                                <p className="text-white text-[10px] font-bold uppercase tracking-widest">
-                                  {img.caption}
-                                </p>
-                              </div>
-                            </div>
-                        ))}
+                        {}
                       </div>
                     </div>
                   </Reveal>
